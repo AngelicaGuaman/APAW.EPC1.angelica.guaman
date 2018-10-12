@@ -1,11 +1,12 @@
 package es.upm.miw.apaw.singleton.factory;
 
 import es.upm.miw.apaw.entities.Photographer;
+import es.upm.miw.apaw.observer.Observable;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class PhotographerFactory {
+public class PhotographerFactory extends Observable {
     private Map<String, Photographer> photographers;
 
     private static final PhotographerFactory factory = new PhotographerFactory();
@@ -26,10 +27,12 @@ public class PhotographerFactory {
 
     public void addPhotographer(Photographer photographer) {
         this.photographers.put(photographer.getId(), photographer);
+        this.notifyObservers();
     }
 
     public void removePhotographer(String key) {
         this.photographers.remove(key);
+        this.notifyObservers();
     }
 
     public int getPhotographerFactorySize() {
