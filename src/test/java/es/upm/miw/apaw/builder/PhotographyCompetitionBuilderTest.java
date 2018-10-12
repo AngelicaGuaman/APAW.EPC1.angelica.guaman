@@ -3,7 +3,7 @@ package es.upm.miw.apaw.builder;
 import es.upm.miw.apaw.entities.Category;
 import es.upm.miw.apaw.entities.Jury;
 import es.upm.miw.apaw.entities.Photographer;
-import es.upm.miw.apaw.entities.PhotographyCompetition;
+import es.upm.miw.apaw.entities.Competition;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
@@ -17,14 +17,14 @@ public class PhotographyCompetitionBuilderTest {
     @Test
     void testFull() {
         LocalDateTime date = LocalDateTime.now();
-        PhotographyCompetition photographyCompetition = new PhotographyCompetitionBuilder("1").category(Category.MACRO).description("Competición Macro")
+        Competition photographyCompetition = new PhotographyCompetitionBuilder("1").category(Category.MACRO).reference("Competición Macro")
                 .jury(new Jury("1", "Angélica")).photographer(new Photographer("1", "Jose")).photographer(new Photographer("2", "Ruth"))
                 .price(40).date(date).build();
 
         assertEquals("1", photographyCompetition.getId());
         assertEquals(Category.MACRO, photographyCompetition.getCategory());
-        assertEquals("Competición Macro", photographyCompetition.getDescription());
-        assertEquals(40, photographyCompetition.getPrice());
+        assertEquals("Competición Macro", photographyCompetition.getReference());
+        assertEquals(new Integer(40), photographyCompetition.getPrice());
         assertEquals(date, photographyCompetition.getDate());
 
         assertEquals(1, photographyCompetition.getJuryList().size());
@@ -45,7 +45,8 @@ public class PhotographyCompetitionBuilderTest {
         Jury jury = new Jury("1", "Angélica");
         jury.setEmail("angelica@etsisi.upm.es");
         juryList.add(jury);
-        jury = new Jury("2", "Ruth", "ruth@etsisi.upm.es");
+        jury = new Jury("2", "Ruth");
+        jury.setEmail("ruth@etsisi.upm.es");
         juryList.add(jury);
 
         Photographer photographer = new Photographer("1", "Jose");
@@ -55,13 +56,13 @@ public class PhotographyCompetitionBuilderTest {
 
         LocalDateTime date = LocalDateTime.now();
 
-        PhotographyCompetition photographyCompetition = new PhotographyCompetitionBuilder("1", Category.MACRO, "Competición Macro", date, 40, photographerList, juryList).build();
+        Competition photographyCompetition = new PhotographyCompetitionBuilder("1", Category.MACRO, "Competición Macro", date, 40, photographerList, juryList).build();
 
         assertEquals("1", photographyCompetition.getId());
         assertEquals(Category.MACRO, photographyCompetition.getCategory());
-        assertEquals("Competición Macro", photographyCompetition.getDescription());
+        assertEquals("Competición Macro", photographyCompetition.getReference());
         assertEquals(date, photographyCompetition.getDate());
-        assertEquals(40, photographyCompetition.getPrice());
+        assertEquals(new Integer(40), photographyCompetition.getPrice());
 
         assertEquals(2, photographyCompetition.getJuryList().size());
         assertEquals("1", photographyCompetition.getJuryList().get(0).getId());
