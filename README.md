@@ -7,7 +7,7 @@
 
 [![Build Status](https://travis-ci.org/AngelicaGuaman/APAW.EPC1.angelica.guaman.svg?branch=master)](https://travis-ci.org/AngelicaGuaman/APAW.EPC1.angelica.guaman)
 
-![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=es.upm.miw:IWVG.SwC.AngelicaGuaman&metric=alert_status)
+![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=es.upm.miw:APAW.EPC1.angelica.guaman&metric=alert_status)
 
 A continuación, se muestra el escenario escogido para el desarrollo de ésta práctica.
 
