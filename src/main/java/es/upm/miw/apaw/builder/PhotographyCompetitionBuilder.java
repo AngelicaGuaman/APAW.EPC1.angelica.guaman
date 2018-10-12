@@ -3,7 +3,7 @@ package es.upm.miw.apaw.builder;
 import es.upm.miw.apaw.entities.Category;
 import es.upm.miw.apaw.entities.Jury;
 import es.upm.miw.apaw.entities.Photographer;
-import es.upm.miw.apaw.entities.PhotographyCompetition;
+import es.upm.miw.apaw.entities.Competition;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -15,16 +15,16 @@ public class PhotographyCompetitionBuilder {
 
     private List<Jury> juryList;
 
-    private PhotographyCompetition photographyCompetition;
+    private Competition photographyCompetition;
 
     public PhotographyCompetitionBuilder(String id) {
-        this.photographyCompetition = new PhotographyCompetition(id);
+        this.photographyCompetition = new Competition(id);
     }
 
-    public PhotographyCompetitionBuilder(String id, Category category, String description, LocalDateTime date, int price, List<Photographer> photographerList, List<Jury> juryList) {
-        this.photographyCompetition = new PhotographyCompetition(id);
+    public PhotographyCompetitionBuilder(String id, Category category, String reference, LocalDateTime date, int price, List<Photographer> photographerList, List<Jury> juryList) {
+        this.photographyCompetition = new Competition(id);
         this.photographyCompetition.setCategory(category);
-        this.photographyCompetition.setDescription(description);
+        this.photographyCompetition.setReference(reference);
         this.photographyCompetition.setDate(date);
         this.photographyCompetition.setPrice(price);
         this.photographyCompetition.setPhotographerList(photographerList);
@@ -37,8 +37,8 @@ public class PhotographyCompetitionBuilder {
         return this;
     }
 
-    public PhotographyCompetitionBuilder description(String description) {
-        this.photographyCompetition.setDescription(description);
+    public PhotographyCompetitionBuilder reference(String reference) {
+        this.photographyCompetition.setReference(reference);
 
         return this;
     }
@@ -77,7 +77,7 @@ public class PhotographyCompetitionBuilder {
         return this;
     }
 
-    public PhotographyCompetition build() {
+    public Competition build() {
         return this.photographyCompetition;
     }
 }

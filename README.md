@@ -14,6 +14,8 @@ A continuación, se muestra el escenario escogido para el desarrollo de ésta pr
 ## Diseño de entidades
 ![entities](https://github.com/AngelicaGuaman/APAW.EPC1.angelica.guaman/blob/master/docs/entities/entities.png)
 
+## Diseño de entidades (con Herencia)
+![entities-inheritance](https://github.com/AngelicaGuaman/APAW.EPC1.angelica.guaman/blob/develop/docs/entities/entities-inheritance.png)
 
 ### Tecnologías necesarias
 * Java
